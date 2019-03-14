@@ -1,0 +1,28 @@
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+
+<html>
+
+   <head>
+   	<title>Enter a new book</title>
+   	<link href="styles.css" rel="Stylesheet" type="text/css"/>   
+   </head>
+
+   <body>
+	  <jsp:include page="/header.jsp"/>
+
+	  <div id="addBook">
+	      <html:form action="/addNewBook.do">
+	         <label>Enter ISBN</label><html:text property="isbn"/><p class="error"><html:errors property="isbn"/></p>         
+	         <label>Enter Title</label><html:text property="title"/><p class="error"><html:errors property="title"/></p>
+	         <label>Enter Author</label><html:text property="author"/><p class="error"><html:errors property="author"/></p>
+	         <label>Enter Price</label><html:text property="price"/><p class="error"> <html:errors property="price"/></p>
+	
+	         <html:submit value="Add New Book"/>
+	      </html:form>
+      </div>
+      
+      
+      <jsp:include page="/footer.jsp"/>
+   </body>
+</html>

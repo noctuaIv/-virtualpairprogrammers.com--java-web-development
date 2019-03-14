@@ -1,0 +1,39 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+ 	<!--  add your config here -->
+ 	
+ 	<form-beans>
+ 		<form-bean name="bookForm" 
+ 		           type="com.virtualpairprogrammers.forms.BookForm"/>
+ 	</form-beans>
+ 	
+    <action-mappings>
+    
+    	<action path="/addNewBook"
+    	        input="/add-new-book.jsp"
+    	        name="bookForm"
+    	        type="com.virtualpairprogrammers.control.AddBookAction"
+    	        validate="true">
+    	
+    		<forward name="addBookSuccessful"
+    				 path="/bookAddedSuccessfully.jsp"/>
+    	
+    	</action>
+    
+		<action path="/all-books" 
+		        type="com.virtualpairprogrammers.control.DisplayAllBooksAction">
+		        
+		        <forward name="viewBooks"
+		                path="/displayAllBooks.jsp"/>
+		        
+		</action>
+    </action-mappings>
+    
+    <message-resources parameter="messages"/>
+    
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+       <set-property property="pathnames" value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validator-rules.xml"/>
+	</plug-in>
+    
+</struts-config>
